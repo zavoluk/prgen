@@ -1,0 +1,13 @@
+{
+    "name": "<%= projectName %>",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "build": "npm run clear && webpack --mode production --config production.webpack.config.js",
+        "start": "webpack-dev-server --open --hot --config dev.webpack.config.js",
+        "clear": "rimraf dist"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}

@@ -1,0 +1,13 @@
+{
+    "name": "<%= projectName %>",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon index.ts",
+        "start": "ts-node index.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
