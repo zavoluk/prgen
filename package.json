@@ -1,14 +1,13 @@
 {
   "name": "prgen",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "build": "npm run clear && tsc && npm run copy",
+    "build": "npm run clear && tsc && shx cp -r templates build",
     "start": "node build/index.js",
     "dev": "ts-node index.ts",
-    "clear": "shx rm -rf build",
-    "copy": "shx cp -r templates build"
+    "clear": "shx rm -rf build"
   },
   "keywords": [],
   "author": {

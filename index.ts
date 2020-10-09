@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import chalk from 'chalk';
 import ejs from 'ejs';
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'fs';
