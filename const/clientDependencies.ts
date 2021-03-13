@@ -5,6 +5,7 @@ export default {
         '@typescript-eslint/eslint-plugin',
         '@typescript-eslint/parser',
         'eslint-config-prettier',
+        'eslint-plugin-better-styled-components',
         'eslint-plugin-prettier',
         'eslint-plugin-react',
         'eslint-plugin-simple-import-sort',
