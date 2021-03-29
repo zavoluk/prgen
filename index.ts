@@ -34,14 +34,46 @@ const questions = [
     }
 ];
 
-function createProject(folder: string): boolean {
-    if (existsSync(folder)) {
-        console.log(chalk.red(`Folder ${folder} exists. Use another name.`));
+function createProject(folderName = '') {
+    if (!folderName.length) {
+        console.log(chalk.red('Please provide folder name'));
 
         return false;
     }
-    mkdirSync(folder);
-    console.log(chalk.blueBright(`Folder ${folder} created`));
+
+    // first letter is not valid
+    if (!/[a-zA-Z0-9]/.test(folderName[0])) {
+        console.log(
+            chalk.red(
+                `Invalid name: ${folderName}. Please read https://docs.npmjs.com/cli/v7/configuring-npm/package-json#name for naming rules`
+            )
+        );
+
+        return false;
+    }
+
+    // has not valid symbols
+    const notValidSymbols = new Set(folderName.replace(/[a-zA-Z0-9_-]/g, '').split(''));
+
+    if (notValidSymbols.size) {
+        console.log(
+            chalk.red(
+                `Invalid symbols: ${[
+                    ...notValidSymbols
+                ]}. Please read https://docs.npmjs.com/cli/v7/configuring-npm/package-json#name for naming rules`
+            )
+        );
+
+        return false;
+    }
+
+    if (existsSync(folderName)) {
+        console.log(chalk.red(`Folder ${folderName} exists. Use another name.`));
+
+        return false;
+    }
+    mkdirSync(folderName);
+    console.log(chalk.blueBright(`Folder ${folderName} created`));
 
     return true;
 }
